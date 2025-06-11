@@ -17,7 +17,7 @@ const Form = () => {
 
     const handleSubmit=(e)=> {
         e.preventDefault()
-        const logindetails = axios.get(`http://localhost:8000/login?email=${uemail}&password=${pass}`)
+        const logindetails = axios.get(`https://netflix-loginpage.onrender.com/login?email=${uemail}&password=${pass}`)
         logindetails.then((data) => {
             //console.log(data)
             if (data.data === true) {

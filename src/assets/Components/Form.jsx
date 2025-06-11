@@ -17,7 +17,7 @@ const Form = () => {
 
     const handleSubmit=(e)=> {
         e.preventDefault()
-        const logindetails = axios.post("https://netflix-loginpage.onrender.com/login", { "email": uemail, "password": pass })
+        const logindetails = axios.get(`http://localhost:8000/login?email=${uemail}&password=${pass}`)
         logindetails.then((data) => {
             //console.log(data)
             if (data.data === true) {
@@ -30,7 +30,7 @@ const Form = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit} method='post'>
+        <form onSubmit={handleSubmit}>
             <div className='content-center text-center flex  flex-col flex-wrap'>
                 <input type="text" onChange={handleChangemail} placeholder='Email or mobile number' className='bg-transparent border border-gray-600 px-2 py-4'required /> <br />
                 <input type="text" onChange={handleChangepass} placeholder='Password' className='bg-transparent border border-gray-600 px-2 py-4' required /> <br />
